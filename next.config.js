@@ -9,7 +9,7 @@ module.exports = {
           {
             key: "Access-Control-Allow-Origin",
             value:
-              "https://supabase-starter-kit-git-main-guerreroz01.vercel.app/",
+              "https://supabase-starter-kit-git-main-guerreroz01.vercel.app",
           },
           {
             key: "Access-Control-Allow-Methods",
