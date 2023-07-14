@@ -13,15 +13,6 @@ async function handler(req: Request, res: Response) {
     createContext: (
       opts: FetchCreateContextFnOptions
     ): object | Promise<object> => {
-      opts.resHeaders.set(
-        "Access-Control-Allow-Origin",
-        "https://supabase-starter-kit-five.vercel.app"
-      );
-      opts.resHeaders.set("Access-Control-Request-Method", "*");
-      opts.resHeaders.set("Access-Control-Allow-Methods", "OPTIONS, GET, POST");
-      opts.resHeaders.set("Access-Control-Allow-Headers", "content-type");
-      opts.resHeaders.set("Referrer-Policy", "no-referrer");
-      opts.resHeaders.set("Access-Control-Allow-Credentials", "true");
       return opts;
     },
   });
