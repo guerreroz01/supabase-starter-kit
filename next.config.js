@@ -6,7 +6,13 @@ module.exports = {
         source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "*" },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: [
+              "https://supabase-starter-kit-git-main-guerreroz01.vercel.app/",
+              "https://supabase-starter-kit-five.vercel.app",
+            ],
+          },
           {
             key: "Access-Control-Allow-Methods",
             value: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
