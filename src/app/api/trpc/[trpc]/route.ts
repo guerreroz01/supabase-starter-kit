@@ -2,10 +2,9 @@ import {
   FetchCreateContextFnOptions,
   fetchRequestHandler,
 } from "@trpc/server/adapters/fetch";
-import { NextRequest, NextResponse } from "next/server";
 import { appRouter } from "../trpc-router";
 
-async function handler(req: NextRequest, res: NextResponse) {
+async function handler(req: Request, res: Response) {
   console.log(`Incoming request from ${req.url}`);
   return fetchRequestHandler({
     endpoint: "/api/trpc",
@@ -14,7 +13,16 @@ async function handler(req: NextRequest, res: NextResponse) {
     createContext: (
       opts: FetchCreateContextFnOptions
     ): object | Promise<object> => {
-      return {};
+      opts.resHeaders.set(
+        "Access-Control-Allow-Origin",
+        "supabase-starter-kit-five.vercel.app"
+      );
+      opts.resHeaders.set("Access-Control-Request-Method", "*");
+      opts.resHeaders.set("Access-Control-Allow-Methods", "OPTIONS, GET");
+      opts.resHeaders.set("Access-Control-Allow-Headers", "content-type");
+      opts.resHeaders.set("Referrer-Policy", "no-referrer");
+      opts.resHeaders.set("Access-Control-Allow-Credentials", "true");
+      return opts;
     },
   });
 }
