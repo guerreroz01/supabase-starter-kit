@@ -17,6 +17,7 @@ async function handler(req: Request, res: Response) {
         "Access-Control-Allow-Origin",
         "https://supabase-starter-kit-five.vercel.app"
       );
+      opts.resHeaders.set("Access-Control-Allow-Origin", "*");
       opts.resHeaders.set("Access-Control-Request-Method", "*");
       opts.resHeaders.set("Access-Control-Allow-Methods", "OPTIONS, GET, POST");
       opts.resHeaders.set("Access-Control-Allow-Headers", "content-type");
