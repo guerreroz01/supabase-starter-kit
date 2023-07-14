@@ -3,8 +3,8 @@ import { useState } from "react";
 import { trpc } from "@/utils/trpc";
 
 export default function Home() {
-  const [name, setName] = useState("Carlos");
-  const [email, setEmail] = useState("carlos@gmail.com");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const {
     data: users,
     isFetching,
@@ -40,6 +40,20 @@ export default function Home() {
               </div>
             );
           })}
+        </div>
+        <div className="flex flex-col gap-2">
+          <input
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            className="px-4 py-2 border border-white outline-none text-gray-950"
+            placeholder="Nombre"
+          />
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            className="px-4 py-2 border border-white outline-none text-gray-950"
+            placeholder="email"
+          />
         </div>
         <div>
           <button
