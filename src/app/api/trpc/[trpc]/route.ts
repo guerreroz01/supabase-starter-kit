@@ -15,7 +15,7 @@ async function handler(req: Request, res: Response) {
     ): object | Promise<object> => {
       opts.resHeaders.set(
         "Access-Control-Allow-Origin",
-        "https://supabase-starter-kit-git-main-guerreroz01.vercel.app/"
+        "https://supabase-starter-kit-five.vercel.app"
       );
       opts.resHeaders.set("Access-Control-Request-Method", "*");
       opts.resHeaders.set("Access-Control-Allow-Methods", "OPTIONS, GET, POST");

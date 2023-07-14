@@ -8,8 +8,7 @@ module.exports = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value:
-              "https://supabase-starter-kit-git-main-guerreroz01.vercel.app",
+            value: "https://supabase-starter-kit-five.vercel.app",
           },
           {
             key: "Access-Control-Allow-Methods",
@@ -19,6 +18,10 @@ module.exports = {
             key: "Access-Control-Allow-Headers",
             value:
               "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+          },
+          {
+            key: "my-Key",
+            value: "my value",
           },
         ],
       },
