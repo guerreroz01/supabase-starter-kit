@@ -1,17 +1,22 @@
+import {
+  FetchCreateContextFnOptions,
+  fetchRequestHandler,
+} from "@trpc/server/adapters/fetch";
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { appRouter } from "../trpc-router";
 
 async function handler(req: NextRequest, res: NextResponse) {
   console.log(`Incoming request from ${req.url}`);
-  const data = await prisma.user.findMany();
-
-  let json_response = {
-    status: "success",
-    results: data,
-  };
-  return NextResponse.json(json_response, { status: 200 });
+  return fetchRequestHandler({
+    endpoint: "/api/trpc",
+    req: req,
+    router: appRouter,
+    createContext: (
+      opts: FetchCreateContextFnOptions
+    ): object | Promise<object> => {
+      return {};
+    },
+  });
 }
 
 export { handler as GET, handler as POST };
