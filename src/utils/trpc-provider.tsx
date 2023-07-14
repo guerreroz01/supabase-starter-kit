@@ -27,7 +27,6 @@ export const TrpcProvider: React.FC<{ children: React.ReactNode }> = ({
             return fetch(input, {
               ...init,
               credentials: "include",
-              mode: "no-cors",
             });
           },
         }),
